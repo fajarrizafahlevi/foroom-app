@@ -2,12 +2,18 @@ import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
 
 const ActionType = {
-  RECEIVE_DETAIL_THREAD: 'detailThread/receive',
   CLEAR_DETAIL_THREAD: 'detailThread/clear',
+  RECEIVE_DETAIL_THREAD: 'detailThread/receive',
   UP_VOTE_THREAD: 'detailThread/upVote',
   DOWN_VOTE_THREAD: 'detailThread/downVote',
   NEUTRAL_VOTE_THREAD: 'detailThread/neutralVote',
 };
+
+function clearDetailThreadActionCreator() {
+  return {
+    type: ActionType.CLEAR_DETAIL_THREAD,
+  };
+}
 
 function receiveDetailThreadActionCreator(detailThread) {
   return {
@@ -15,12 +21,6 @@ function receiveDetailThreadActionCreator(detailThread) {
     payload: {
       detailThread,
     },
-  };
-}
-
-function clearDetailThreadActionCreator() {
-  return {
-    type: ActionType.CLEAR_DETAIL_THREAD,
   };
 }
 

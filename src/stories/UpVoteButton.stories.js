@@ -14,16 +14,16 @@ const TemplateStory = (args) => <UpVoteButton {...args} />;
 
 const isUpVoted = TemplateStory.bind({});
 isUpVoted.args = {
-  id: 'fajar',
-  upVotesBy: ['fajar', 'riza', 'fahlevi'],
-  authUserId: 'fajar',
+  id: 'id',
+  upVotesBy: ['john', 'jane', 'doe'],
+  authUserId: 'john',
 };
 
 const isNotUpVoted = TemplateStory.bind({});
 isNotUpVoted.args = {
-  id: 'fajar',
-  upVotesBy: ['riza', 'fahlevi'],
-  authUserId: 'fajar',
+  id: 'id',
+  upVotesBy: ['jane', 'doe'],
+  authUserId: 'john',
 };
 
 export { isUpVoted, isNotUpVoted };
