@@ -37,11 +37,15 @@ function DetailPage() {
   };
 
   const onUpVoteThread = () => {
-    authUser === null ? alert('You must login to vote') : dispatch(asyncUpVoteThread(id));
+    authUser === null
+      ? alert('You must login to vote')
+      : dispatch(asyncUpVoteThread(id));
   };
 
   const onDownVoteThread = () => {
-    authUser === null ? alert('You must login to vote') : dispatch(asyncDownVoteThread(id));
+    authUser === null
+      ? alert('You must login to vote')
+      : dispatch(asyncDownVoteThread(id));
   };
 
   const onNeutralVoteThread = () => {
@@ -82,10 +86,7 @@ function DetailPage() {
           downVote={onDownVoteThread}
           neutralVote={onNeutralVoteThread}
         />
-        <CommentInput
-          authUser={authUser}
-          commentThread={onCommentThread}
-        />
+        <CommentInput authUser={authUser} commentThread={onCommentThread} />
         <CommentsList
           comments={commentsList}
           upVote={onUpVoteComment}
@@ -105,10 +106,7 @@ function DetailPage() {
         downVote={onDownVoteThread}
         neutralVote={onNeutralVoteThread}
       />
-      <CommentInput
-        authUser={authUser}
-        commentThread={onCommentThread}
-      />
+      <CommentInput authUser={authUser} commentThread={onCommentThread} />
       <CommentsList
         comments={commentsList}
         authUserId={authUser.id}

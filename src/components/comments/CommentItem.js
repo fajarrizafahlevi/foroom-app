@@ -19,7 +19,11 @@ function CommentItem({
   return (
     <div className="comment-item">
       <header className="comment-item__owner">
-        <img className="comment-item__owner-avatar" alt="owner avatar" src={owner.avatar} />
+        <img
+          className="comment-item__owner-avatar"
+          alt="owner avatar"
+          src={owner.avatar}
+        />
         <div>
           <h3 className="comment-item__owner-name">{owner.name}</h3>
           <p className="comment-item__posted">{postedAt(createdAt)}</p>

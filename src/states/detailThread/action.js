@@ -92,13 +92,17 @@ function asyncNeutralizeVoteThread(threadId) {
   return async (dispatch, getState) => {
     dispatch(showLoading());
     const { authUser } = getState();
-    dispatch(neutralizeVoteThreadActionCreator({ threadId, userId: authUser.id }));
+    dispatch(
+      neutralizeVoteThreadActionCreator({ threadId, userId: authUser.id }),
+    );
 
     try {
       await api.neutralizeVoteThread(threadId);
     } catch (error) {
       alert(error.message);
-      dispatch(neutralizeVoteThreadActionCreator({ threadId, userId: authUser.id }));
+      dispatch(
+        neutralizeVoteThreadActionCreator({ threadId, userId: authUser.id }),
+      );
     }
 
     dispatch(hideLoading());

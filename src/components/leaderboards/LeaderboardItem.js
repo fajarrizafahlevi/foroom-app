@@ -6,12 +6,14 @@ function LeaderboardItem({ name, avatar, score }) {
     <div className="leaderboard-item">
       <div className="leaderboard-item__user">
         <div className="leaderboard-item__user-info">
-          <img className="leaderboard-item__user-info__avatar" alt="user avatar" src={avatar} />
+          <img
+            className="leaderboard-item__user-info__avatar"
+            alt="user avatar"
+            src={avatar}
+          />
           <span>{name}</span>
         </div>
-        <span>
-          {score}
-        </span>
+        <span>{score}</span>
       </div>
     </div>
   );

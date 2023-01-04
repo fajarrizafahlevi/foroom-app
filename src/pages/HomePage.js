@@ -1,4 +1,6 @@
+/* eslint-disable indent */
 /* eslint-disable no-unused-expressions */
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -29,11 +31,15 @@ function HomePage() {
   }, [dispatch]);
 
   const onUpVoteThread = (id) => {
-    authUser === null ? alert('You must login to vote') : dispatch(asyncUpVoteThread(id));
+    authUser === null
+      ? alert('You must login to vote')
+      : dispatch(asyncUpVoteThread(id));
   };
 
   const onDownVoteThread = (id) => {
-    authUser === null ? alert('You must login to vote') : dispatch(asyncDownVoteThread(id));
+    authUser === null
+      ? alert('You must login to vote')
+      : dispatch(asyncDownVoteThread(id));
   };
 
   const onNeutralVoteThread = (id) => {
@@ -48,7 +54,9 @@ function HomePage() {
   const onFilterThreads = (curcat) => {
     curcat === 'all'
       ? setFilteredThreads(threadsList)
-      : setFilteredThreads(threadsList.filter((thread) => thread.category === curcat));
+      : setFilteredThreads(
+          threadsList.filter((thread) => thread.category === curcat),
+        );
     return filteredThreads;
   };
 
@@ -56,10 +64,7 @@ function HomePage() {
     <section className="home-page">
       <header>
         <h4>Categories</h4>
-        <CategoriesList
-          filter={onFilterThreads}
-          categories={categories}
-        />
+        <CategoriesList filter={onFilterThreads} categories={categories} />
       </header>
       <article>
         <h2>Discussions</h2>
@@ -74,7 +79,9 @@ function HomePage() {
           <>
             <ThreadsList
               authUserId={authUser.id}
-              threads={filteredThreads.length > 0 ? filteredThreads : threadsList}
+              threads={
+                filteredThreads.length > 0 ? filteredThreads : threadsList
+              }
               upVote={onUpVoteThread}
               downVote={onDownVoteThread}
               neutralVote={onNeutralVoteThread}

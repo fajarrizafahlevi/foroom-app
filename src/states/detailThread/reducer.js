@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+
 import { ActionType } from './action';
 
 function detailThreadReducer(detailThread = null, action = {}) {
@@ -11,7 +13,9 @@ function detailThreadReducer(detailThread = null, action = {}) {
         ...detailThread,
         upVotesBy: detailThread.upVotesBy.concat([action.payload.userId]),
         downVotesBy: detailThread.downVotesBy.includes(action.payload.userId)
-          ? detailThread.downVotesBy.filter((id) => id !== action.payload.userId)
+          ? detailThread.downVotesBy.filter(
+              (id) => id !== action.payload.userId,
+            )
           : detailThread.downVotesBy,
       };
     case ActionType.DOWN_VOTE_THREAD:
@@ -29,7 +33,9 @@ function detailThreadReducer(detailThread = null, action = {}) {
           ? detailThread.upVotesBy.filter((id) => id !== action.payload.userId)
           : detailThread.upVotesBy,
         downVotesBy: detailThread.downVotesBy.includes(action.payload.userId)
-          ? detailThread.downVotesBy.filter((id) => id !== action.payload.userId)
+          ? detailThread.downVotesBy.filter(
+              (id) => id !== action.payload.userId,
+            )
           : detailThread.downVotesBy,
       };
     default:

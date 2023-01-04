@@ -24,14 +24,8 @@ function ThreadInput({ addThread }) {
         onChange={onCategoryChange}
         placeholder="Category"
       />
-      <textarea
-        value={body}
-        onChange={onBodyChange}
-      />
-      <button
-        className="add-button"
-        type="button"
-      >
+      <textarea value={body} onChange={onBodyChange} />
+      <button className="add-button" type="button">
         Add
       </button>
     </form>

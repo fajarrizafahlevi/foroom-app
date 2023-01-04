@@ -68,9 +68,15 @@ describe('asyncReceiveUsersAndThreads', () => {
 
     // assert
     expect(dispatch).toHaveBeenCalledWith(showLoading());
-    expect(dispatch).toHaveBeenCalledWith(receiveUsersActionCreator(fakeUsersResponse));
-    expect(dispatch).toHaveBeenCalledWith(receiveThreadsActionCreator(fakeThreadsResponse));
-    expect(dispatch).toHaveBeenCalledWith(receiveCategoriesActionCreator(fakeThreadsResponse));
+    expect(dispatch).toHaveBeenCalledWith(
+      receiveUsersActionCreator(fakeUsersResponse),
+    );
+    expect(dispatch).toHaveBeenCalledWith(
+      receiveThreadsActionCreator(fakeThreadsResponse),
+    );
+    expect(dispatch).toHaveBeenCalledWith(
+      receiveCategoriesActionCreator(fakeThreadsResponse),
+    );
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
   });
 
