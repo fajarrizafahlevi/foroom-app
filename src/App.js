@@ -50,11 +50,26 @@ function App() {
         <>
           <main>
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/threads/:id" element={<DetailPage />} />
-              <Route path="/leaderboards" element={<LeaderboardsPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
+              <Route
+                path="/"
+                element={<HomePage />}
+              />
+              <Route
+                path="/threads/:id"
+                element={<DetailPage />}
+              />
+              <Route
+                path="/leaderboards"
+                element={<LeaderboardsPage />}
+              />
+              <Route
+                path="/login"
+                element={<LoginPage />}
+              />
+              <Route
+                path="/register"
+                element={<RegisterPage />}
+              />
             </Routes>
           </main>
           <footer>
@@ -65,15 +80,29 @@ function App() {
         <>
           <main>
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/new" element={<AddPage />} />
-              <Route path="/threads/:id" element={<DetailPage />} />
-              <Route path="/leaderboards" element={<LeaderboardsPage />} />
-              <Route path="/login" element={<LoginPage />} />
+              <Route
+                path="/"
+                element={<HomePage />}
+              />
+              <Route
+                path="/new"
+                element={<AddPage />}
+              />
+              <Route
+                path="/threads/:id"
+                element={<DetailPage />}
+              />
+              <Route
+                path="/leaderboards"
+                element={<LeaderboardsPage />}
+              />
             </Routes>
           </main>
           <footer>
-            <Navigation authUser={authUser} logout={onLogout} />
+            <Navigation
+              authUser={authUser}
+              logout={onLogout}
+            />
           </footer>
         </>
       )}
