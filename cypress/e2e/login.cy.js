@@ -35,7 +35,7 @@ describe('Login spec', () => {
 
   it('should display alert when password is empty', () => {
     // filling username
-    cy.get('input[placeholder="Email"]').type('testuser@example.com');
+    cy.get('input[placeholder="Email"]').type('test@test.com');
 
     // click login button without filling password
     cy.get('button')
@@ -50,7 +50,7 @@ describe('Login spec', () => {
 
   it('should display alert when email or password is wrong', () => {
     // filling email
-    cy.get('input[placeholder="Email"]').type('testuser@example.com');
+    cy.get('input[placeholder="Email"]').type('test@test.com');
 
     // filling wrong password
     cy.get('input[placeholder="Password"]').type('wrong_password');
