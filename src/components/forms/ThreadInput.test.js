@@ -62,9 +62,7 @@ describe('ThreadInput component', () => {
     await userEvent.type(categoryInput, 'categorytest');
     const bodyInput = await screen.getByPlaceholderText('Body');
     await userEvent.type(bodyInput, 'bodytest');
-    const addButton = await screen.getByRole('button', {
-      name: 'Add',
-    });
+    const addButton = await screen.getByRole('button', { name: 'Add' });
 
     // action
     await userEvent.click(addButton);

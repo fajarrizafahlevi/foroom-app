@@ -28,10 +28,7 @@ function CommentInput({ authUser, commentThread }) {
   return (
     <section className="comment-input">
       <h3>Give a comment:</h3>
-      <textarea
-        value={content}
-        onChange={handleContentChange}
-      />
+      <textarea value={content} onChange={handleContentChange} />
       <button
         className="comment-button"
         type="button"

@@ -50,6 +50,8 @@ describe('LoginInput component', () => {
     const loginButton = await screen.getByRole('button', { name: 'Login' });
 
     // action
+    await userEvent.type(emailInput, 'emailtest');
+    await userEvent.type(passwordInput, 'passwordtest');
     await fireEvent.submit(loginButton);
 
     // assert

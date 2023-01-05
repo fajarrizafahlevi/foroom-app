@@ -30,7 +30,8 @@ function LoginInput({ login }) {
       />
       <button
         className="login-button"
-        type="submit"
+        type="button"
+        onClick={() => login({ email, password })}
       >
         Login
       </button>
