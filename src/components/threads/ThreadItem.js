@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -24,10 +26,7 @@ function ThreadItem({
   return (
     <div className="thread-item">
       <header>
-        <p className="thread-item__category">
-          #
-          {category}
-        </p>
+        <p className="thread-item__category">#{category}</p>
         <h3 className="thread-item__title">
           <Link to={`/threads/${id}`}>{title}</Link>
         </h3>

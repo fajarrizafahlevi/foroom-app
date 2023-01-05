@@ -68,10 +68,10 @@ describe('Login spec', () => {
 
   it('should display logout button when login success', () => {
     // filling email
-    cy.get('input[placeholder="Email"]').type('fajar@fajar.com');
+    cy.get('input[placeholder="Email"]').type('test@test.com');
 
     // filling password
-    cy.get('input[placeholder="Password"]').type('fajar123');
+    cy.get('input[placeholder="Password"]').type('test123');
 
     // click login button
     cy.get('button')

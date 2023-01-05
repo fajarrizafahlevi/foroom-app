@@ -30,10 +30,7 @@ function RegisterInput({ register }) {
         onChange={onPasswordChange}
         placeholder="Password"
       />
-      <button
-        className="register-button"
-        type="submit"
-      >
+      <button className="register-button" type="submit">
         Register
       </button>
     </form>

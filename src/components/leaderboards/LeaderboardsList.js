@@ -22,7 +22,8 @@ function LeaderboardsList({ leaderboards }) {
 }
 
 LeaderboardsList.propTypes = {
-  leaderboards: PropTypes.arrayOf(PropTypes.shape(leaderboardItemShape)).isRequired,
+  leaderboards: PropTypes.arrayOf(PropTypes.shape(leaderboardItemShape))
+    .isRequired,
 };
 
 export default LeaderboardsList;

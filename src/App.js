@@ -14,7 +14,9 @@ import { asyncUnsetAuthUser } from './states/authUser/action';
 import { asyncPreloadProcess } from './states/isPreload/action';
 
 function App() {
-  const { authUser = null, isPreload = false } = useSelector((states) => states);
+  const { authUser = null, isPreload = false } = useSelector(
+    (states) => states,
+  );
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -93,10 +95,6 @@ function App() {
               <Route
                 path="/leaderboards"
                 element={<LeaderboardsPage />}
-              />
-              <Route
-                path="/login"
-                element={<LoginPage />}
               />
             </Routes>
           </main>

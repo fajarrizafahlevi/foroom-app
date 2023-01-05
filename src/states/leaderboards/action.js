@@ -29,4 +29,8 @@ function asyncReceiveLeaderboards() {
   };
 }
 
-export { ActionType, receiveLeaderboardsActionCreator, asyncReceiveLeaderboards };
+export {
+  ActionType,
+  receiveLeaderboardsActionCreator,
+  asyncReceiveLeaderboards,
+};

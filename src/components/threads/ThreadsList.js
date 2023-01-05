@@ -2,13 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ThreadItem, { threadItemShape } from './ThreadItem';
 
-function ThreadsList({
-  threads,
-  authUserId,
-  upVote,
-  downVote,
-  neutralVote,
-}) {
+// eslint-disable-next-line object-curly-newline
+function ThreadsList({ threads, authUserId, upVote, downVote, neutralVote }) {
   return (
     <section className="thread-list">
       {threads.map((thread) => (

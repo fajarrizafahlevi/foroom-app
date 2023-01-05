@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -18,9 +19,7 @@ function CommentInput({ authUser, commentThread }) {
     return (
       <section className="no-account">
         <p>
-          <Link to="/login">Login</Link>
-          {' '}
-          to comment.
+          <Link to="/login">Login</Link> to comment.
         </p>
       </section>
     );
@@ -29,10 +28,7 @@ function CommentInput({ authUser, commentThread }) {
   return (
     <section className="comment-input">
       <h3>Give a comment:</h3>
-      <textarea
-        value={content}
-        onChange={handleContentChange}
-      />
+      <textarea value={content} onChange={handleContentChange} />
       <button
         className="comment-button"
         type="submit"
