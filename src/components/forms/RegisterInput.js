@@ -7,10 +7,15 @@ function RegisterInput({ register }) {
   const [email, onEmailChange] = useInput('');
   const [password, onPasswordChange] = useInput('');
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    register({ name, email, password });
+  }
+
   return (
     <form
       className="register-input"
-      onSubmit={() => register({ name, email, password })}
+      onSubmit={handleSubmit}
     >
       <input
         type="text"
@@ -30,7 +35,10 @@ function RegisterInput({ register }) {
         onChange={onPasswordChange}
         placeholder="Password"
       />
-      <button className="register-button" type="submit">
+      <button
+        className="register-button"
+        type="submit"
+      >
         Register
       </button>
     </form>

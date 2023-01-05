@@ -8,10 +8,7 @@ function ThreadInput({ addThread }) {
   const [body, onBodyChange] = useInput('');
 
   return (
-    <form
-      className="thread-input"
-      onSubmit={() => addThread({ title, category, body })}
-    >
+    <form className="thread-input">
       <input
         type="text"
         value={title}
@@ -24,8 +21,16 @@ function ThreadInput({ addThread }) {
         onChange={onCategoryChange}
         placeholder="Category"
       />
-      <textarea value={body} onChange={onBodyChange} />
-      <button className="add-button" type="button">
+      <textarea
+        value={body}
+        onChange={onBodyChange}
+        placeholder="Body"
+      />
+      <button
+        className="add-button"
+        type="button"
+        onClick={() => addThread({ title, category, body })}
+      >
         Add
       </button>
     </form>

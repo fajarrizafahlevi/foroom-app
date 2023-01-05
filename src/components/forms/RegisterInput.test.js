@@ -1,23 +1,36 @@
 /**
  * testing scenario
  *
- * - LoginInput component
+ * - RegisterInput component
+ *   - should handle name typing correctly
  *   - should handle email typing correctly
  *   - should handle password typing correctly
- *   - should call login function when login button is clicked
+ *   - should call register function when register button is clicked
  */
 
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import LoginInput from './LoginInput';
+import RegisterInput from './RegisterInput';
 
 import '@testing-library/jest-dom';
 
-describe('LoginInput component', () => {
+describe('RegisterInput component', () => {
+  it('should handle name typing correctly', async () => {
+    // arrange
+    render(<RegisterInput register={() => {}} />);
+    const nameInput = await screen.getByPlaceholderText('Name');
+
+    // action
+    await userEvent.type(nameInput, 'nametest');
+
+    // assert
+    expect(nameInput).toHaveValue('nametest');
+  });
+
   it('should handle email typing correctly', async () => {
     // arrange
-    render(<LoginInput login={() => {}} />);
+    render(<RegisterInput register={() => {}} />);
     const emailInput = await screen.getByPlaceholderText('Email');
 
     // action
@@ -29,7 +42,7 @@ describe('LoginInput component', () => {
 
   it('should handle password typing correctly', async () => {
     // arrange
-    render(<LoginInput login={() => {}} />);
+    render(<RegisterInput register={() => {}} />);
     const passwordInput = await screen.getByPlaceholderText('Password');
 
     // action
@@ -39,20 +52,24 @@ describe('LoginInput component', () => {
     expect(passwordInput).toHaveValue('passwordtest');
   });
 
-  it('should call login function when login button is clicked', async () => {
+  it('should call register function when register button is clicked', async () => {
     // arrange
-    const mockLogin = jest.fn();
-    render(<LoginInput login={mockLogin} />);
+    const mockRegister = jest.fn();
+    render(<RegisterInput register={mockRegister} />);
+    const nameInput = await screen.getByPlaceholderText('Name');
+    await userEvent.type(nameInput, 'nametest');
     const emailInput = await screen.getByPlaceholderText('Email');
     await userEvent.type(emailInput, 'emailtest');
     const passwordInput = await screen.getByPlaceholderText('Password');
     await userEvent.type(passwordInput, 'passwordtest');
-    const loginButton = await screen.getByRole('button', { name: 'Login' });
+    const registerButton = await screen.getByRole('button', {
+      name: 'Register',
+    });
 
     // action
-    await fireEvent.submit(loginButton);
+    await fireEvent.submit(registerButton);
 
     // assert
-    expect(mockLogin).toHaveBeenCalled();
+    expect(mockRegister).toHaveBeenCalled();
   });
 });
