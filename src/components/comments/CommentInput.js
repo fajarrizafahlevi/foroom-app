@@ -31,7 +31,7 @@ function CommentInput({ authUser, commentThread }) {
       <textarea value={content} onChange={handleContentChange} />
       <button
         className="comment-button"
-        type="submit"
+        type="button"
         onClick={commentThreadHandler}
       >
         Send

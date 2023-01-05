@@ -6,8 +6,16 @@ function LoginInput({ login }) {
   const [email, onEmailChange] = useInput('');
   const [password, onPasswordChange] = useInput('');
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    login({ email, password });
+  }
+
   return (
-    <form className="login-input">
+    <form
+      className="login-input"
+      onSubmit={handleSubmit}
+    >
       <input
         type="email"
         value={email}
