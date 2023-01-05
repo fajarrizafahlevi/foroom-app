@@ -5,38 +5,31 @@ import { Link } from 'react-router-dom';
 function Navigation({ authUser, logout }) {
   return (
     <nav>
-      {
-        authUser === null
-          ? (
-            <ul>
-              <li>
-                <Link to="/">Threads</Link>
-              </li>
-              <li>
-                <Link to="/leaderboards">Leaderboards</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-            </ul>
-          ) : (
-            <ul>
-              <li>
-                <Link to="/">Threads</Link>
-              </li>
-              <li>
-                <Link to="/leaderboards">Leaderboards</Link>
-              </li>
-              <button
-                className="logout-button"
-                type="button"
-                onClick={logout}
-              >
-                Logout
-              </button>
-            </ul>
-          )
-      }
+      {authUser === null ? (
+        <ul>
+          <li>
+            <Link to="/">Threads</Link>
+          </li>
+          <li>
+            <Link to="/leaderboards">Leaderboards</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </ul>
+      ) : (
+        <ul>
+          <li>
+            <Link to="/">Threads</Link>
+          </li>
+          <li>
+            <Link to="/leaderboards">Leaderboards</Link>
+          </li>
+          <button className="logout-button" type="button" onClick={logout}>
+            Logout
+          </button>
+        </ul>
+      )}
     </nav>
   );
 }

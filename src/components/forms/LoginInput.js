@@ -7,10 +7,7 @@ function LoginInput({ login }) {
   const [password, onPasswordChange] = useInput('');
 
   return (
-    <form
-      className="login-input"
-      onSubmit={() => login({ email, password })}
-    >
+    <form className="login-input">
       <input
         type="email"
         value={email}
@@ -25,7 +22,8 @@ function LoginInput({ login }) {
       />
       <button
         className="login-button"
-        type="submit"
+        type="button"
+        onClick={() => login({ email, password })}
       >
         Login
       </button>

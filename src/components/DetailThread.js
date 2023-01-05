@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { postedAt } from '../utils';
@@ -21,10 +23,7 @@ function DetailThread({
   return (
     <section className="detail-thread">
       <header>
-        <p className="detail-thread__category">
-          #
-          {category}
-        </p>
+        <p className="detail-thread__category">#{category}</p>
         <h2 className="detail-thread__title">{title}</h2>
       </header>
       <article>
@@ -49,7 +48,11 @@ function DetailThread({
         </div>
         <div className="detail-thread__owner">
           <p>Created by</p>
-          <img className="detail-thread__owner__avatar" alt="owner avatar" src={owner.avatar} />
+          <img
+            className="detail-thread__owner__avatar"
+            alt="owner avatar"
+            src={owner.avatar}
+          />
           <h4 className="detail-thread__owner__name">{owner.name}</h4>
         </div>
         <p className="detail-thread__posted">{postedAt(createdAt)}</p>

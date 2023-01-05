@@ -26,9 +26,7 @@ function DownVoteButton({
       >
         {isDownVoted ? <AiFillDislike /> : <AiOutlineDislike />}
       </button>
-      <span>
-        {downVotesBy.length}
-      </span>
+      <span>{downVotesBy.length}</span>
     </div>
   );
 }

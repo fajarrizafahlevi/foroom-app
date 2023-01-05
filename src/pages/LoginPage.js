@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -19,8 +21,7 @@ function LoginPage() {
       <LoginInput login={onLogin} />
       <div className="no-account">
         <p>
-          Don&apos;t have an account?
-          <Link to="/register">Register</Link>
+          Don&apos;t have an account? <Link to="/register">Register</Link>
         </p>
       </div>
     </section>

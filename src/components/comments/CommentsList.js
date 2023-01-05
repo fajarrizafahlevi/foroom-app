@@ -2,13 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CommentItem, { commentItemShape } from './CommentItem';
 
-function CommentsList({
-  comments,
-  authUserId,
-  upVote,
-  downVote,
-  neutralVote,
-}) {
+// eslint-disable-next-line object-curly-newline
+function CommentsList({ comments, authUserId, upVote, downVote, neutralVote }) {
   return (
     <section className="comments-list">
       <h4 className="comments-list__total">{`Comments (${comments.length})`}</h4>

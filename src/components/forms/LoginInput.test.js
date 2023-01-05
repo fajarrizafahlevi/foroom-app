@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import LoginInput from './LoginInput';
 
@@ -43,17 +43,19 @@ describe('LoginInput component', () => {
     // arrange
     const mockLogin = jest.fn();
     render(<LoginInput login={mockLogin} />);
-
     const emailInput = await screen.getByPlaceholderText('Email');
+    await userEvent.type(emailInput, 'emailtest');
     const passwordInput = await screen.getByPlaceholderText('Password');
+    await userEvent.type(passwordInput, 'passwordtest');
     const loginButton = await screen.getByRole('button', { name: 'Login' });
 
     // action
-    await userEvent.type(emailInput, 'emailtest');
-    await userEvent.type(passwordInput, 'passwordtest');
-    await fireEvent.submit(loginButton);
+    await userEvent.click(loginButton);
 
     // assert
-    expect(mockLogin).toHaveBeenCalled();
+    expect(mockLogin).toBeCalledWith({
+      email: 'emailtest',
+      password: 'passwordtest',
+    });
   });
 });

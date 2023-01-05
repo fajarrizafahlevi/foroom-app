@@ -99,7 +99,9 @@ function asyncDownVoteComment({ threadId, commentId }) {
       await api.downVoteComment({ threadId, commentId });
     } catch (error) {
       alert(error.message);
-      dispatch(downVoteCommentActionCreator({ commentId, userId: authUser.id }));
+      dispatch(
+        downVoteCommentActionCreator({ commentId, userId: authUser.id }),
+      );
     }
 
     dispatch(hideLoading());
@@ -110,13 +112,17 @@ function asyncNeutralizeVoteComment({ threadId, commentId }) {
   return async (dispatch, getState) => {
     dispatch(showLoading());
     const { authUser } = getState();
-    dispatch(neutralizeVoteCommentActionCreator({ commentId, userId: authUser.id }));
+    dispatch(
+      neutralizeVoteCommentActionCreator({ commentId, userId: authUser.id }),
+    );
 
     try {
       await api.neutralizeVoteComment({ threadId, commentId });
     } catch (error) {
       alert(error.message);
-      dispatch(neutralizeVoteCommentActionCreator({ commentId, userId: authUser.id }));
+      dispatch(
+        neutralizeVoteCommentActionCreator({ commentId, userId: authUser.id }),
+      );
     }
 
     dispatch(hideLoading());

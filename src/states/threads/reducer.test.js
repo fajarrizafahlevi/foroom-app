@@ -7,7 +7,6 @@
  *   - should return the threads with the new thread when given by threads/add action
  *   - should return the threads with up-voted when given by threads/upVote action
  *   - should return the threads with down-voted when given by threads/downVote action
- *   - should return the threads with not voted when given by threads/neutralVote action
  */
 
 import threadsReducer from './reducer';
@@ -33,23 +32,12 @@ describe('threadsReducer function', () => {
       payload: {
         threads: [
           {
-            id: 'thread-1',
-            title: 'First Thread',
-            body: 'This is the first thread',
-            category: 'General',
+            id: 'thread-test',
+            title: 'Test Thread',
+            body: 'This is the test thread',
+            category: 'Test',
             createdAt: '2021-06-21T07:00:00.000Z',
-            ownerId: 'users-1',
-            upVotesBy: [],
-            downVotesBy: [],
-            totalComments: 0,
-          },
-          {
-            id: 'thread-2',
-            title: 'Second Thread',
-            body: 'This is the second Thread',
-            category: 'General',
-            createdAt: '2021-06-21T07:00:00.000Z',
-            ownerId: 'users-2',
+            ownerId: 'user-test',
             upVotesBy: [],
             downVotesBy: [],
             totalComments: 0,
@@ -69,12 +57,12 @@ describe('threadsReducer function', () => {
     // arrange
     const initialState = [
       {
-        id: 'thread-1',
-        title: 'First Thread',
-        body: 'This is the first thread',
-        category: 'General',
+        id: 'thread-test',
+        title: 'Test Thread',
+        body: 'This is the test thread',
+        category: 'Test',
         createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-1',
+        ownerId: 'user-test',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,
@@ -87,10 +75,10 @@ describe('threadsReducer function', () => {
         thread: {
           id: 'new-thread',
           title: 'New Thread',
-          body: 'This is a new thread',
-          category: 'General',
+          body: 'This is new thread',
+          category: 'New',
           createdAt: '2021-06-21T07:00:00.000Z',
-          ownerId: 'users-1',
+          ownerId: 'user-new',
           upVotesBy: [],
           downVotesBy: [],
           totalComments: 0,
@@ -105,16 +93,16 @@ describe('threadsReducer function', () => {
     expect(nextState).toEqual([action.payload.thread, ...initialState]);
   });
 
-  it('should return the threads with toggled upvote when given by threads/upVote action', () => {
+  it('should return the threads with up-voted when given by threads/upVote action', () => {
     // arrange
     const initialState = [
       {
-        id: 'thread-1',
-        title: 'First Thread',
-        body: 'This is the first thread',
-        category: 'General',
+        id: 'thread-test',
+        title: 'Test Thread',
+        body: 'This is the test thread',
+        category: 'Test',
         createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-1',
+        ownerId: 'user-test',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,
@@ -124,12 +112,12 @@ describe('threadsReducer function', () => {
     const action = {
       type: 'threads/upVote',
       payload: {
-        threadId: 'thread-1',
-        userId: 'user-1',
+        threadId: 'thread-test',
+        userId: 'user-test',
       },
     };
 
-    // action: upvote thread
+    // action: up-vote thread
     const nextState = threadsReducer(initialState, action);
 
     // assert
@@ -144,8 +132,8 @@ describe('threadsReducer function', () => {
     const action2 = {
       type: 'threads/neutralVote',
       payload: {
-        threadId: 'thread-1',
-        userId: 'user-1',
+        threadId: 'thread-test',
+        userId: 'user-test',
       },
     };
 
@@ -156,16 +144,16 @@ describe('threadsReducer function', () => {
     expect(nextState2).toEqual(initialState);
   });
 
-  it('should return the threads with toggled downvote when given by threads/downVote action', () => {
+  it('should return the threads with down-voted when given by threads/downVote action', () => {
     // arrange
     const initialState = [
       {
-        id: 'thread-1',
-        title: 'First Thread',
-        body: 'This is the first thread',
-        category: 'General',
+        id: 'thread-test',
+        title: 'Test Thread',
+        body: 'This is the test thread',
+        category: 'Test',
         createdAt: '2021-06-21T07:00:00.000Z',
-        ownerId: 'users-1',
+        ownerId: 'user-test',
         upVotesBy: [],
         downVotesBy: [],
         totalComments: 0,
@@ -175,12 +163,12 @@ describe('threadsReducer function', () => {
     const action = {
       type: 'threads/downVote',
       payload: {
-        threadId: 'thread-1',
-        userId: 'user-1',
+        threadId: 'thread-test',
+        userId: 'user-test',
       },
     };
 
-    // action: upvote thread
+    // action: down-vote thread
     const nextState = threadsReducer(initialState, action);
 
     // assert
@@ -194,8 +182,8 @@ describe('threadsReducer function', () => {
     const action2 = {
       type: 'threads/neutralVote',
       payload: {
-        threadId: 'thread-1',
-        userId: 'user-1',
+        threadId: 'thread-test',
+        userId: 'user-test',
       },
     };
 
